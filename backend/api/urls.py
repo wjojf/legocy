@@ -21,5 +21,6 @@ urlpatterns = [
     
     path('marketitems/', marketplace_views.MarketItemApiView.as_view(), name='api-marketitems'),
     path('marketitems/create/', marketplace_views.AddMarketItemApiView.as_view(), name='api-create-marketitem'),
-    
+    path('marketitems/update/<int:pk>', marketplace_views.UpdateMarketItemApiView.as_view(), name='update-market-item'),
+
 ]

@@ -1,5 +1,7 @@
+from django.shortcuts import get_object_or_404
+from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework import generics
+from rest_framework import generics, status
 
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from core.permissions import IsItemOwner
@@ -19,3 +21,31 @@ class AddMarketItemApiView(generics.CreateAPIView):
     permission_classes = (IsAuthenticated, )
     queryset = MarketItem.objects.all()
     serializer_class = MarketItemBasicSerializer
+
+
+class UpdateMarketItemApiView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def __init__(self, **kwargs):
+        self.market_item = None
+        super().__init__(**kwargs)
+
+    def post(self, request):
+        self.market_item = get_object_or_404(MarketItem,
+                                             id=request.data.get('id'))
+        if request.user != self.market_item.seller:
+            return Response(status=status.HTTP_403_FORBIDDEN)
+        active_status = request.data.get('active')
+        price = request.data.get('price')
+        currency = request.data.get('currency')
+        if currency is None and price is None and currency is None:
+            return Response('Empty fields are passed',
+                            status=status.HTTP_400_BAD_REQUEST)
+        if active_status is not None:
+            self.market_item.active = active_status
+        if price is not None:
+            self.market_item.price = price
+        if currency is not None:
+            self.market_item.currency = currency
+        self.market_item.save()
+        return Response('Success', status=status.HTTP_200_OK)

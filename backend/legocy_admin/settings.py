@@ -143,3 +143,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ]
 }
+
+FIXTURE_DIRS = [
+    'fixtures',
+]
