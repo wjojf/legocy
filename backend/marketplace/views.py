@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from rest_framework import generics, status
 
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
-from core.permissions import IsItemOwner
+from .permissions import IsItemOwner
 
 from marketplace.models import MarketItem
 from marketplace.serializers import MarketItemBasicSerializer, MarketItemSerializer
@@ -24,7 +24,7 @@ class AddMarketItemApiView(generics.CreateAPIView):
 
 
 class UpdateMarketItemApiView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = (IsAuthenticated, IsItemOwner)
 
     def __init__(self, **kwargs):
         self.market_item = None
@@ -33,8 +33,6 @@ class UpdateMarketItemApiView(APIView):
     def post(self, request):
         self.market_item = get_object_or_404(MarketItem,
                                              id=request.data.get('id'))
-        if request.user != self.market_item.seller:
-            return Response(status=status.HTTP_403_FORBIDDEN)
         active_status = request.data.get('active')
         price = request.data.get('price')
         currency = request.data.get('currency')

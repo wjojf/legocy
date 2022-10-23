@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAdminUser, IsAuthenticated
 
 from .serializers import LegoSeriesSerializer, LegoSetImageSerializer, LegoSetSerializer, LegoSetBasicSerializer
 from .models import LegoSeries, LegoSet, LegoSetImage
-from .permissions import IsItemOwner
+
 
 import json
 
