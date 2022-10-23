@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     
     'rest_framework',
     'rest_framework.authtoken',
+    'dj_rest_auth',
+    'allauth',
+    'allauth.account',
     
     'core',
     'api',
@@ -110,6 +113,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+SITE_ID=1
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -143,3 +148,18 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ]
 }
+
+FIXTURE_DIRS = [
+    'fixtures',
+]
+
+ACCOUNT_EMAIL_REQUIRED = True
+
+# Login/Logout urls
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
+
+LOGOUT_URL = '/accounts/logout/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
