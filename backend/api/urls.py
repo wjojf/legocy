@@ -7,8 +7,7 @@ import marketplace.views as marketplace_views
 
 urlpatterns = [ 
     path('', api_views.APIHomeView.as_view(), name='api-home'),
-    path('get-token/', obtain_auth_token, name='api-obtain-token'),
-    
+
     path('series/', core_views.LegoSeriesApiView.as_view(), name='api-series'),
     path('series/create/', core_views.AddLegoSeriesView.as_view(), name='api-add-series'),
     

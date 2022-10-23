@@ -291,179 +291,359 @@
   "model": "auth.permission",
   "pk": 33,
   "fields": {
-    "name": "Can add lego series",
+    "name": "Can add social application",
     "content_type": 9,
-    "codename": "add_legoseries"
+    "codename": "add_socialapp"
   }
 },
 {
   "model": "auth.permission",
   "pk": 34,
   "fields": {
-    "name": "Can change lego series",
+    "name": "Can change social application",
     "content_type": 9,
-    "codename": "change_legoseries"
+    "codename": "change_socialapp"
   }
 },
 {
   "model": "auth.permission",
   "pk": 35,
   "fields": {
-    "name": "Can delete lego series",
+    "name": "Can delete social application",
     "content_type": 9,
-    "codename": "delete_legoseries"
+    "codename": "delete_socialapp"
   }
 },
 {
   "model": "auth.permission",
   "pk": 36,
   "fields": {
-    "name": "Can view lego series",
+    "name": "Can view social application",
     "content_type": 9,
-    "codename": "view_legoseries"
+    "codename": "view_socialapp"
   }
 },
 {
   "model": "auth.permission",
   "pk": 37,
   "fields": {
-    "name": "Can add lego set",
+    "name": "Can add social account",
     "content_type": 10,
-    "codename": "add_legoset"
+    "codename": "add_socialaccount"
   }
 },
 {
   "model": "auth.permission",
   "pk": 38,
   "fields": {
-    "name": "Can change lego set",
+    "name": "Can change social account",
     "content_type": 10,
-    "codename": "change_legoset"
+    "codename": "change_socialaccount"
   }
 },
 {
   "model": "auth.permission",
   "pk": 39,
   "fields": {
-    "name": "Can delete lego set",
+    "name": "Can delete social account",
     "content_type": 10,
-    "codename": "delete_legoset"
+    "codename": "delete_socialaccount"
   }
 },
 {
   "model": "auth.permission",
   "pk": 40,
   "fields": {
-    "name": "Can view lego set",
+    "name": "Can view social account",
     "content_type": 10,
-    "codename": "view_legoset"
+    "codename": "view_socialaccount"
   }
 },
 {
   "model": "auth.permission",
   "pk": 41,
   "fields": {
-    "name": "Can add lego set image",
+    "name": "Can add social application token",
     "content_type": 11,
-    "codename": "add_legosetimage"
+    "codename": "add_socialtoken"
   }
 },
 {
   "model": "auth.permission",
   "pk": 42,
   "fields": {
-    "name": "Can change lego set image",
+    "name": "Can change social application token",
     "content_type": 11,
-    "codename": "change_legosetimage"
+    "codename": "change_socialtoken"
   }
 },
 {
   "model": "auth.permission",
   "pk": 43,
   "fields": {
-    "name": "Can delete lego set image",
+    "name": "Can delete social application token",
     "content_type": 11,
-    "codename": "delete_legosetimage"
+    "codename": "delete_socialtoken"
   }
 },
 {
   "model": "auth.permission",
   "pk": 44,
   "fields": {
-    "name": "Can view lego set image",
+    "name": "Can view social application token",
     "content_type": 11,
-    "codename": "view_legosetimage"
+    "codename": "view_socialtoken"
   }
 },
 {
   "model": "auth.permission",
   "pk": 45,
   "fields": {
-    "name": "Can add market item",
+    "name": "Can add email address",
     "content_type": 12,
-    "codename": "add_marketitem"
+    "codename": "add_emailaddress"
   }
 },
 {
   "model": "auth.permission",
   "pk": 46,
   "fields": {
-    "name": "Can change market item",
+    "name": "Can change email address",
     "content_type": 12,
-    "codename": "change_marketitem"
+    "codename": "change_emailaddress"
   }
 },
 {
   "model": "auth.permission",
   "pk": 47,
   "fields": {
-    "name": "Can delete market item",
+    "name": "Can delete email address",
     "content_type": 12,
-    "codename": "delete_marketitem"
+    "codename": "delete_emailaddress"
   }
 },
 {
   "model": "auth.permission",
   "pk": 48,
   "fields": {
-    "name": "Can view market item",
+    "name": "Can view email address",
     "content_type": 12,
-    "codename": "view_marketitem"
+    "codename": "view_emailaddress"
   }
 },
 {
   "model": "auth.permission",
   "pk": 49,
   "fields": {
-    "name": "Can add market item image",
+    "name": "Can add email confirmation",
     "content_type": 13,
-    "codename": "add_marketitemimage"
+    "codename": "add_emailconfirmation"
   }
 },
 {
   "model": "auth.permission",
   "pk": 50,
   "fields": {
-    "name": "Can change market item image",
+    "name": "Can change email confirmation",
     "content_type": 13,
-    "codename": "change_marketitemimage"
+    "codename": "change_emailconfirmation"
   }
 },
 {
   "model": "auth.permission",
   "pk": 51,
   "fields": {
-    "name": "Can delete market item image",
+    "name": "Can delete email confirmation",
     "content_type": 13,
-    "codename": "delete_marketitemimage"
+    "codename": "delete_emailconfirmation"
   }
 },
 {
   "model": "auth.permission",
   "pk": 52,
   "fields": {
-    "name": "Can view market item image",
+    "name": "Can view email confirmation",
     "content_type": 13,
+    "codename": "view_emailconfirmation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add lego series",
+    "content_type": 14,
+    "codename": "add_legoseries"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change lego series",
+    "content_type": 14,
+    "codename": "change_legoseries"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete lego series",
+    "content_type": 14,
+    "codename": "delete_legoseries"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view lego series",
+    "content_type": 14,
+    "codename": "view_legoseries"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can add lego set",
+    "content_type": 15,
+    "codename": "add_legoset"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can change lego set",
+    "content_type": 15,
+    "codename": "change_legoset"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can delete lego set",
+    "content_type": 15,
+    "codename": "delete_legoset"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can view lego set",
+    "content_type": 15,
+    "codename": "view_legoset"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 61,
+  "fields": {
+    "name": "Can add lego set image",
+    "content_type": 16,
+    "codename": "add_legosetimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 62,
+  "fields": {
+    "name": "Can change lego set image",
+    "content_type": 16,
+    "codename": "change_legosetimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 63,
+  "fields": {
+    "name": "Can delete lego set image",
+    "content_type": 16,
+    "codename": "delete_legosetimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 64,
+  "fields": {
+    "name": "Can view lego set image",
+    "content_type": 16,
+    "codename": "view_legosetimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 65,
+  "fields": {
+    "name": "Can add market item",
+    "content_type": 17,
+    "codename": "add_marketitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 66,
+  "fields": {
+    "name": "Can change market item",
+    "content_type": 17,
+    "codename": "change_marketitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 67,
+  "fields": {
+    "name": "Can delete market item",
+    "content_type": 17,
+    "codename": "delete_marketitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 68,
+  "fields": {
+    "name": "Can view market item",
+    "content_type": 17,
+    "codename": "view_marketitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 69,
+  "fields": {
+    "name": "Can add market item image",
+    "content_type": 18,
+    "codename": "add_marketitemimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 70,
+  "fields": {
+    "name": "Can change market item image",
+    "content_type": 18,
+    "codename": "change_marketitemimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 71,
+  "fields": {
+    "name": "Can delete market item image",
+    "content_type": 18,
+    "codename": "delete_marketitemimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 72,
+  "fields": {
+    "name": "Can view market item image",
+    "content_type": 18,
     "codename": "view_marketitemimage"
   }
 },
@@ -471,7 +651,7 @@
   "model": "auth.user",
   "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$390000$ovJ3vy60V0zU8xGuLRMqmW$FG+OyAIEv+PyxKzHmc/L6+l8JA2mmLpwYmKjqW8ZdNk=",
+    "password": "pbkdf2_sha256$390000$OZH6pnOkz28H9dnjz2JJg0$kIMZhWzoomMLLj0nJciFAttuSbKREmhYSIXZfznnVjg=",
     "last_login": null,
     "is_superuser": false,
     "username": "test_user",
@@ -480,7 +660,7 @@
     "email": "test@test.com",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2022-10-22T06:54:06.744Z",
+    "date_joined": "2022-10-23T06:22:52.449Z",
     "groups": [],
     "user_permissions": []
   }
@@ -553,13 +733,53 @@
   "model": "contenttypes.contenttype",
   "pk": 9,
   "fields": {
+    "app_label": "allauth",
+    "model": "socialapp"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "allauth",
+    "model": "socialaccount"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "allauth",
+    "model": "socialtoken"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "account",
+    "model": "emailaddress"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "account",
+    "model": "emailconfirmation"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
     "app_label": "core",
     "model": "legoseries"
   }
 },
 {
   "model": "contenttypes.contenttype",
-  "pk": 10,
+  "pk": 15,
   "fields": {
     "app_label": "core",
     "model": "legoset"
@@ -567,7 +787,7 @@
 },
 {
   "model": "contenttypes.contenttype",
-  "pk": 11,
+  "pk": 16,
   "fields": {
     "app_label": "core",
     "model": "legosetimage"
@@ -575,7 +795,7 @@
 },
 {
   "model": "contenttypes.contenttype",
-  "pk": 12,
+  "pk": 17,
   "fields": {
     "app_label": "marketplace",
     "model": "marketitem"
@@ -583,7 +803,7 @@
 },
 {
   "model": "contenttypes.contenttype",
-  "pk": 13,
+  "pk": 18,
   "fields": {
     "app_label": "marketplace",
     "model": "marketitemimage"
@@ -610,8 +830,8 @@
   "model": "marketplace.marketitem",
   "pk": 1,
   "fields": {
-    "created": "2022-10-22T06:54:06.811Z",
-    "last_modified": "2022-10-22T06:54:06.811Z",
+    "created": "2022-10-23T06:22:52.517Z",
+    "last_modified": "2022-10-23T06:22:52.517Z",
     "active": true,
     "lego_set": 1,
     "seller": 1,
