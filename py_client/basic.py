@@ -6,9 +6,8 @@ import os
 printer = pprint.PrettyPrinter()
 
 
-API_TOKEN = os.environ.get('API_TOKEN')
 HEADERS = {
-    'Authorization': f'Token {API_TOKEN}'
+    'Authorization': f'Bearer TOKEN_HERE'
 }
 print(HEADERS)
 

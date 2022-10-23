@@ -1,5 +1,12 @@
 from django.urls import path
-from rest_framework.authtoken.views import obtain_auth_token
+
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+    TokenVerifyView
+)
+
+
 import api.views as api_views 
 import core.views as core_views 
 import marketplace.views as marketplace_views 
@@ -7,6 +14,10 @@ import marketplace.views as marketplace_views
 
 urlpatterns = [ 
     path('', api_views.APIHomeView.as_view(), name='api-home'),
+    
+    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('token/verify', TokenVerifyView.as_view(), name='token_verify'),
 
     path('series/', core_views.LegoSeriesApiView.as_view(), name='api-series'),
     path('series/create/', core_views.AddLegoSeriesView.as_view(), name='api-add-series'),
