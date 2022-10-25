@@ -1,6 +1,7 @@
 from django.db import models
 from core.models import LegoSet
-from core.common_models import TimestampedModel
+from core.common_models import TimestampedModel, LikeDislike
+from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
@@ -14,6 +15,8 @@ class MarketItem(TimestampedModel):
     seller = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Seller')
     price = models.PositiveIntegerField(verbose_name='Selling price')
     currency = models.CharField(max_length=150, choices=CURRENCY_CHOICES)
+    
+    votes = GenericRelation(LikeDislike)
 
     class Meta:
         unique_together = ('seller', 'lego_set')
@@ -35,3 +38,4 @@ class MarketItemImage(models.Model):
 
     def __str__(self):
         return f'{self.market_item} - {self.image.name}' 
+    
