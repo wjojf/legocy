@@ -12,6 +12,7 @@ from .utils import CURRENCY_CHOICES, market_item_image_filepath
 class MarketItem(TimestampedModel):
     active = models.BooleanField(verbose_name='Listing is active', default=True)
     lego_set = models.ForeignKey(LegoSet, on_delete=models.CASCADE, verbose_name='LEGO set')
+    ammount = models.PositiveIntegerField(null=False, default=1, verbose_name='Ammount of sets avaliable')
     seller = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Seller')
     price = models.PositiveIntegerField(verbose_name='Selling price')
     currency = models.CharField(max_length=150, choices=CURRENCY_CHOICES)

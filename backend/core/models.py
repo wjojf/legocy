@@ -1,10 +1,21 @@
-from enum import unique
-from tabnanny import verbose
 from django.db import models
-from core.utils import lego_set_image_filepath  
+from core.utils import lego_set_image_filepath, user_avatar_filepath 
+from django.contrib.auth.models import AbstractBaseUser
 
 from django.db.models.signals import post_delete
 from .signals_utils import file_cleanup, images_cleanup
+
+
+class LegocyUser(AbstractBaseUser):
+    username = models.CharField(max_length=50, unique=True)
+    avatar = models.ImageField(verbose_name='User avatar', upload_to=user_avatar_filepath)
+    
+    REQUIRED_FIELDS = ['email', 'password', 'avatar']
+    USERNAME_FIELD = 'username'
+    
+    
+    def __str__(self):
+        return f'{self.username}'
 
 
 class LegoSeries(models.Model):

@@ -26,24 +26,6 @@ class AddMarketItemApiView(generics.CreateAPIView):
 class UpdateMarketItemApiView(APIView):
     permission_classes = (IsAuthenticated, IsItemOwner)
 
-    def __init__(self, **kwargs):
-        self.market_item = None
-        super().__init__(**kwargs)
-
-    def post(self, request):
-        self.market_item = get_object_or_404(MarketItem,
-                                             id=request.data.get('id'))
-        active_status = request.data.get('active')
-        price = request.data.get('price')
-        currency = request.data.get('currency')
-        if currency is None and price is None and currency is None:
-            return Response('Empty fields are passed',
-                            status=status.HTTP_400_BAD_REQUEST)
-        if active_status is not None:
-            self.market_item.active = active_status
-        if price is not None:
-            self.market_item.price = price
-        if currency is not None:
-            self.market_item.currency = currency
-        self.market_item.save()
-        return Response('Success', status=status.HTTP_200_OK)
+    def put(self, request, *args, **kwargs):
+        pass 
+    
