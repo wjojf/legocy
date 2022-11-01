@@ -13,19 +13,17 @@ import json
 class FilteredListMixin(object):
     def get(self, request, *args, **kwargs):
         try:
+            print(request.body)
             body = json.loads(request.body)
         except Exception as e:
             print(e)
             body = {}
 
         if 'filter_' in body:
-            for k, v in body['filter_'].items():
-                filter_string = f'self.queryset.filter({k}={v})'
-                print(filter_string)
-                try:
-                    self.queryset = eval(filter_string)
-                except Exception as e:
-                    continue
+            try:
+                self.queryset = self.queryset.filter(**body['filter_'])
+            except Exception as e:
+                print(e)
         
         return super().get(request, *args, **kwargs)
 

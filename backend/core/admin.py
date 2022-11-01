@@ -6,6 +6,7 @@ from .models import LegoSeries, LegoSet, LegoSetImage
 admin.site.register(LegoSeries)
 admin.site.register(LegoSetImage)
 
+
 class LegoSetImageInline(admin.StackedInline):
     model = LegoSetImage
     extra = 1
@@ -15,7 +16,7 @@ class LegoSetImageInline(admin.StackedInline):
 @admin.register(LegoSet)
 class LegoSetAdmin(admin.ModelAdmin):
     inlines = [LegoSetImageInline]
-    search_fields = ['set_number', 'title']
+    search_fields = ['set_number', 'title']  
     fieldsets = (
       ('Set info', {
           'fields': (
