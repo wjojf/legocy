@@ -15,6 +15,7 @@ class LegoSetImageInline(admin.StackedInline):
 @admin.register(LegoSet)
 class LegoSetAdmin(admin.ModelAdmin):
     inlines = [LegoSetImageInline]
+    search_fields = ['set_number', 'title']
     fieldsets = (
       ('Set info', {
           'fields': (

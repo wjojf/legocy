@@ -16,8 +16,13 @@ class Command(BaseCommand):
             return 
         
         for _inst in _json:
+            print(_inst)
             if ct == LegoSet:
-                _inst['series'] = LegoSeries.objects.get(name=_inst['series'])
+                try:
+                    _inst['series'] = LegoSeries.objects.get(name=_inst['series'])
+                except:
+                    continue
+                
             try:
                 obj, created = ct.objects.get_or_create(
                     **_inst
