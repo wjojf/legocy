@@ -10,5 +10,5 @@ LEGOcy is a marketplace for LEGO fans. It allows users to sell their own sets as
 3. Django REST Framework 3.14.0
 
 - Frontend 
-1.Not yet started
+1. Not yet started
 
