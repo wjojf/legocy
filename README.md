@@ -1,6 +1,8 @@
+![Progress](https://progress-bar.dev/28/?title=progress)
 # Welcome to LEGOcy! 
 
 LEGOcy is a marketplace for LEGO fans. It allows users to sell their own sets as well as buy sets from other users 
+
 
 # Technologies
 
@@ -9,6 +11,7 @@ LEGOcy is a marketplace for LEGO fans. It allows users to sell their own sets as
 2. Django 4.1.2
 3. Django REST Framework 3.14.0
 
-- Frontend 
-1. Not yet started
+# API 
 
+LEGOcy provides an open API for lego storage including sets, series, and images. 
+API documentation coming soon
