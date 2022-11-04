@@ -1,4 +1,5 @@
 from django.urls import path
+from rest_framework.routers import DefaultRouter
 
 from rest_framework_simplejwt.views import (
     TokenRefreshView,
@@ -10,6 +11,8 @@ import api.views as api_views
 import core.views as core_views 
 import marketplace.views as marketplace_views 
 
+
+router = DefaultRouter()
 
 urlpatterns = [ 
     path('', api_views.APIHomeView.as_view(), name='api-home'),
@@ -33,3 +36,4 @@ urlpatterns = [
     path('marketitems/update/<int:pk>', marketplace_views.UpdateMarketItemApiView.as_view(), name='update-market-item'),
 
 ]
+urlpatterns += router.urls
