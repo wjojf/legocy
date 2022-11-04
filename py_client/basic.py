@@ -2,7 +2,6 @@ import requests
 import pprint 
 import os
 
-
 printer = pprint.PrettyPrinter()
 
 

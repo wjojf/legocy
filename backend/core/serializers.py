@@ -36,10 +36,6 @@ class LegoSetBasicSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-
-
-
-
 class LegoSetImageSerializer(serializers.ModelSerializer):
 
     class Meta:
