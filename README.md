@@ -14,4 +14,5 @@ LEGOcy is a marketplace for LEGO fans. It allows users to sell their own sets as
 # API 
 
 LEGOcy provides an open API for lego storage including sets, series, and images. 
-API documentation coming soon
+
+<h3 style='italic'>API documentation coming soon...<h3>
