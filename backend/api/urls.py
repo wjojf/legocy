@@ -25,7 +25,7 @@ urlpatterns = [
     path('series/create/', core_views.AddLegoSeriesView.as_view(), name='api-add-series'),
     
     path('sets/', core_views.LegoSetsApiView.as_view(), name='api-sets'),
-    path('sets/<int:pk>', core_views.LegoSetDetailApiView.as_view(), name='api-set'),
+    path('sets/<int:pk>/', core_views.LegoSetDetailApiView.as_view(), name='api-set'),
     path('sets/create/', core_views.AddLegoSetApiView.as_view(), name='api-create-set'),
     path('sets/update/<int:pk>', core_views.UpdateLegoSetApiView.as_view(), name='api-update-set'),
 

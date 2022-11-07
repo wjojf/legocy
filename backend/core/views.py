@@ -12,6 +12,7 @@ import json
 
 class FilteredListMixin(object):
     def get(self, request, *args, **kwargs):
+        #print('Received HEADERS: {}'.format(request.headers))
         try:
             body = json.loads(request.body.strip())
             print(body)
