@@ -1,27 +1,23 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes
-} from 'react-router-dom';
-
-
 import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import PrivateRoute from './utils/PrivateRoute'
+import { AuthProvider } from './context/AuthContext'
+
+import HomePage from './pages/HomePage'
+import LoginPage from './pages/LoginPage'
 import Header from './components/Header'
-import SetsListPage from './pages/SetsListPage'
-import SetPage from './pages/SetPage'
 
 function App() {
   return (
-    <Router>
-      
-      <div className="App">
-        <Header />
-        <Routes>
-          <Route path="/" exact element={<SetsListPage />}></Route>
-          <Route path='/set/:setId' element={<SetPage/>}></Route>
-        </Routes>
-      </div>
-    </Router>
+    <div className="App">
+      <Router>
+        <AuthProvider>
+          <Header/>
+          <PrivateRoute component={HomePage} path="/" exact/>
+          <Route component={LoginPage} path="/login"/>
+        </AuthProvider>
+      </Router>
+    </div>
   );
 }
 

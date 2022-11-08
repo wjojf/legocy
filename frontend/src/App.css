@@ -1,0 +1,12 @@
+body{
+    background-color: rgb(52, 52, 70);
+    color: white;
+}
+
+li{
+    marker: none;
+}
+
+a{
+    color: rgb(0, 25, 63);
+}
