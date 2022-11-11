@@ -22,10 +22,7 @@ class AddMarketItemApiView(generics.CreateAPIView):
     queryset = MarketItem.objects.all()
     serializer_class = MarketItemBasicSerializer
 
-
+#TODO:
 class UpdateMarketItemApiView(APIView):
-    permission_classes = (IsAuthenticated, IsItemOwner)
-
-    def put(self, request, *args, **kwargs):
-        pass 
+    permission_classes = (IsItemOwner, )
     

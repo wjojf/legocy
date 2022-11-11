@@ -13,7 +13,7 @@ class MarketItemImageInline(admin.StackedInline):
 @admin.register(MarketItem)
 class MarketItemAdmin(admin.ModelAdmin):
     inlines = [MarketItemImageInline]
-    readonly_fields = ['seller', 'created', 'last_modified']
+    readonly_fields = ['created', 'last_modified']
     fieldsets = (
         ('Seller Info',{
             'fields': (

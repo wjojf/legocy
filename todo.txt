@@ -1,0 +1,4 @@
+1) Viewset vs /create /update
+2) Error Response codes (HTTP & {data, meta}) [WIP]
+3) Pagintation
+
