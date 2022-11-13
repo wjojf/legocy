@@ -69,7 +69,8 @@ class LegoSetDetailApiView(APIView):
                     "data": None,
                     "meta": {
                         "error": 201,
-                        "error_message": "Could not find a LegoSet with ID {}".format(pk)
+                        "error_message": "Could not find a LegoSet with ID {}".format(pk), 
+                        "pk_received": pk
                     },
                     status=status.HTTP_404_NOT_FOUND
                 })
