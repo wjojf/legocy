@@ -133,3 +133,6 @@ dmypy.json
 
 #local files
 local_*
+
+#TODO FILES
+todo.txt
