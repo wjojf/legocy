@@ -1,0 +1,362 @@
+[
+    {
+        "id": 1,
+        "name": "Advanced models"
+    },
+    {
+        "id": 2,
+        "name": "Adventurers"
+    },
+    {
+        "id": 3,
+        "name": "Architecture"
+    },
+    {
+        "id": 4,
+        "name": "Art"
+    },
+    {
+        "id": 5,
+        "name": "Avatar"
+    },
+    {
+        "id": 6,
+        "name": "Batman"
+    },
+    {
+        "id": 7,
+        "name": "Belville"
+    },
+    {
+        "id": 8,
+        "name": "Ben 10: Alien Force"
+    },
+    {
+        "id": 9,
+        "name": "Bionicle"
+    },
+    {
+        "id": 10,
+        "name": "Brick Sketches"
+    },
+    {
+        "id": 11,
+        "name": "BrickHeadz"
+    },
+    {
+        "id": 12,
+        "name": "Cars"
+    },
+    {
+        "id": 13,
+        "name": "Castle"
+    },
+    {
+        "id": 14,
+        "name": "City"
+    },
+    {
+        "id": 15,
+        "name": "Creator"
+    },
+    {
+        "id": 16,
+        "name": "Creator Expert"
+    },
+    {
+        "id": 17,
+        "name": "DC Comics Super Heroes"
+    },
+    {
+        "id": 18,
+        "name": "DC Super Hero Girls"
+    },
+    {
+        "id": 19,
+        "name": "Dimensions"
+    },
+    {
+        "id": 20,
+        "name": "Dino"
+    },
+    {
+        "id": 21,
+        "name": "Discovery"
+    },
+    {
+        "id": 22,
+        "name": "Disney"
+    },
+    {
+        "id": 23,
+        "name": "Dots"
+    },
+    {
+        "id": 24,
+        "name": "Exo-Force"
+    },
+    {
+        "id": 25,
+        "name": "Factory"
+    },
+    {
+        "id": 26,
+        "name": "FORMA"
+    },
+    {
+        "id": 27,
+        "name": "Friends"
+    },
+    {
+        "id": 28,
+        "name": "Fusion"
+    },
+    {
+        "id": 29,
+        "name": "Games"
+    },
+    {
+        "id": 30,
+        "name": "Ghostbusters"
+    },
+    {
+        "id": 31,
+        "name": "Harry Potter"
+    },
+    {
+        "id": 32,
+        "name": "HERO Factory"
+    },
+    {
+        "id": 33,
+        "name": "Hidden Side"
+    },
+    {
+        "id": 34,
+        "name": "Hobby Set"
+    },
+    {
+        "id": 35,
+        "name": "Icons"
+    },
+    {
+        "id": 36,
+        "name": "Ideas"
+    },
+    {
+        "id": 37,
+        "name": "Indiana Jones"
+    },
+    {
+        "id": 38,
+        "name": "Jurassic World"
+    },
+    {
+        "id": 39,
+        "name": "Legends of Chima"
+    },
+    {
+        "id": 40,
+        "name": "Life of George"
+    },
+    {
+        "id": 41,
+        "name": "Marvel Super Heroes"
+    },
+    {
+        "id": 42,
+        "name": "Master Builder Academy"
+    },
+    {
+        "id": 43,
+        "name": "Mickey Mouse"
+    },
+    {
+        "id": 44,
+        "name": "Mindstorms"
+    },
+    {
+        "id": 45,
+        "name": "Minecraft"
+    },
+    {
+        "id": 46,
+        "name": "Minions: The Rise of Gru"
+    },
+    {
+        "id": 47,
+        "name": "Mixels"
+    },
+    {
+        "id": 48,
+        "name": "Model Team"
+    },
+    {
+        "id": 49,
+        "name": "Monkie Kid"
+    },
+    {
+        "id": 50,
+        "name": "Monster Fighters"
+    },
+    {
+        "id": 51,
+        "name": "Nexo Knights"
+    },
+    {
+        "id": 52,
+        "name": "Ninjago"
+    },
+    {
+        "id": 53,
+        "name": "Originals"
+    },
+    {
+        "id": 54,
+        "name": "Overwatch"
+    },
+    {
+        "id": 55,
+        "name": "Pirates"
+    },
+    {
+        "id": 56,
+        "name": "Pirates of the Caribbean"
+    },
+    {
+        "id": 57,
+        "name": "Power Functions"
+    },
+    {
+        "id": 58,
+        "name": "Powered Up"
+    },
+    {
+        "id": 59,
+        "name": "Prince of Persia"
+    },
+    {
+        "id": 60,
+        "name": "Promotional"
+    },
+    {
+        "id": 61,
+        "name": "Scooby-Doo"
+    },
+    {
+        "id": 62,
+        "name": "Seasonal"
+    },
+    {
+        "id": 63,
+        "name": "Serious Play"
+    },
+    {
+        "id": 64,
+        "name": "Space"
+    },
+    {
+        "id": 65,
+        "name": "Speed Champions"
+    },
+    {
+        "id": 66,
+        "name": "Spider-Man"
+    },
+    {
+        "id": 67,
+        "name": "SpongeBob SquarePants"
+    },
+    {
+        "id": 68,
+        "name": "Star Wars"
+    },
+    {
+        "id": 69,
+        "name": "Stranger Things"
+    },
+    {
+        "id": 70,
+        "name": "Studios"
+    },
+    {
+        "id": 71,
+        "name": "Super Mario"
+    },
+    {
+        "id": 72,
+        "name": "Technic"
+    },
+    {
+        "id": 73,
+        "name": "Teenage Mutant Ninja Turtles"
+    },
+    {
+        "id": 74,
+        "name": "The Angry Birds Movie"
+    },
+    {
+        "id": 75,
+        "name": "The Hobbit"
+    },
+    {
+        "id": 76,
+        "name": "The LEGO Batman Movie"
+    },
+    {
+        "id": 77,
+        "name": "The LEGO Movie"
+    },
+    {
+        "id": 78,
+        "name": "The LEGO Movie 2"
+    },
+    {
+        "id": 79,
+        "name": "The LEGO Ninjago Movie"
+    },
+    {
+        "id": 80,
+        "name": "The Lone Ranger"
+    },
+    {
+        "id": 81,
+        "name": "The Lord of the Rings"
+    },
+    {
+        "id": 82,
+        "name": "The Simpsons"
+    },
+    {
+        "id": 83,
+        "name": "Toy Story"
+    },
+    {
+        "id": 84,
+        "name": "Trains"
+    },
+    {
+        "id": 85,
+        "name": "Trolls World Tour"
+    },
+    {
+        "id": 86,
+        "name": "Ultra Agents"
+    },
+    {
+        "id": 87,
+        "name": "Vikings"
+    },
+    {
+        "id": 88,
+        "name": "Western"
+    },
+    {
+        "id": 89,
+        "name": "World City"
+    },
+    {
+        "id": 90,
+        "name": "World Racers"
+    }
+]
