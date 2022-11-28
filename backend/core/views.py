@@ -31,9 +31,8 @@ class FilteredListMixin(object):
                             "error_message": """
                                 Something is wrong with your filters.
                                  Check the 'filter_' param of your request"""
-                        },
-                        status=status.HTTP_400_BAD_REQUEST
-                    })
+                        }
+                    },status=status.HTTP_400_BAD_REQUEST)
     
         
         return super().get(request, *args, **kwargs)
@@ -72,8 +71,8 @@ class LegoSetDetailApiView(APIView):
                         "error_message": "Could not find a LegoSet with ID {}".format(pk), 
                         "pk_received": pk
                     },
-                    status=status.HTTP_404_NOT_FOUND
-                })
+                },status=status.HTTP_404_NOT_FOUND)
+               
     
         return Response(LegoSetSerializer(obj, many=False).data)
     
