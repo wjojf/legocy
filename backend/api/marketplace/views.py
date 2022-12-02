@@ -4,11 +4,11 @@ from rest_framework.views import APIView
 from rest_framework import generics, status
 from rest_framework.permissions import IsAuthenticated
 
-from marketplace.permissions import IsItemOwner
+from api.marketplace.permissions import IsItemOwner
 from marketplace.models import MarketItem
-from marketplace.serializers import MarketItemBasicSerializer, MarketItemSerializer
+from api.marketplace.serializers import MarketItemBasicSerializer, MarketItemSerializer
 
-from core.views import FilteredListMixin
+from core.utils import FilteredListMixin
 
 
 class MarketItemApiView(FilteredListMixin, generics.ListAPIView):

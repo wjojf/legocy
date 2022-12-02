@@ -8,11 +8,9 @@ from rest_framework_simplejwt.views import (
 from api.views import MyTokenObtainPairView
 
 import api.views as api_views 
-import core.views as core_views 
-import marketplace.views as marketplace_views 
+import api.core.views as core_views 
+import api.marketplace.views as marketplace_views 
 
-
-router = DefaultRouter()
 
 urlpatterns = [ 
     path('', api_views.APIHomeView.as_view(), name='api-home'),
@@ -36,4 +34,3 @@ urlpatterns = [
     path('marketitems/update/<int:pk>', marketplace_views.UpdateMarketItemApiView.as_view(), name='update-market-item'),
 
 ]
-urlpatterns += router.urls
