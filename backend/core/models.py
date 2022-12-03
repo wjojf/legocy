@@ -13,7 +13,6 @@ class LegocyUser(AbstractBaseUser):
     REQUIRED_FIELDS = ['email', 'password', 'avatar']
     USERNAME_FIELD = 'username'
     
-    
     def __str__(self):
         return f'{self.username}'
 
@@ -36,7 +35,7 @@ class LegoSet(models.Model):
 
     @property
     def series_name(self):
-        return self.series.title
+        return self.series.name
 
     def __str__(self):
         return f'{self.set_number} - {self.title}'

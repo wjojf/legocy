@@ -12,7 +12,9 @@ class APIHomeView(APIView):
 
     def get(self, request, *args, **kwargs):
         return Response({
-            'data': f'Welcome to legocy API! This is home page, but you can read more at www.legocy.com/documenation/api',
+            'data': '''
+            Welcome to legocy API!
+             This is home page, but you can read more at www.legocy.com/documenation/api''',
             'meta': {
                 'home_page': True
             }})

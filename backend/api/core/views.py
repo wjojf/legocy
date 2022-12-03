@@ -1,71 +1,109 @@
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework import generics
-from rest_framework.permissions import IsAdminUser, IsAuthenticated
-from rest_framework import status
-from django.shortcuts import get_object_or_404
-
-from api.core.serializers import LegoSeriesSerializer, LegoSetImageSerializer, LegoSetSerializer, LegoSetBasicSerializer
+from api.core.serializers import (LegoSeriesSerializer, LegoSetBasicSerializer,
+                                  LegoSetImageSerializer, LegoSetSerializer)
 from core.models import LegoSeries, LegoSet, LegoSetImage
 from core.utils import FilteredListMixin
+from rest_framework import generics, status, viewsets
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
-import json
 
-
-
-# LegoSeries Views 
-class LegoSeriesApiView(FilteredListMixin, generics.ListAPIView):
-    permission_classes = (IsAuthenticated, )
+class LegoSeriesViewSet(viewsets.ModelViewSet):
     queryset = LegoSeries.objects.all()
     serializer_class = LegoSeriesSerializer
 
+    def get_permissions(self):
 
-class AddLegoSeriesView(generics.CreateAPIView):
-    permission_classes = (IsAdminUser, )
-    queryset = LegoSeries.objects.all()
-    serializer_class = LegoSeriesSerializer
+        if self.action in ("list", "retrieve"):
+            permissions = (IsAuthenticated, )
+        else:
+            permissions = (IsAdminUser, )
 
+        return [permission() for permission in permissions]
 
-class LegoSetsApiView(FilteredListMixin, generics.ListAPIView):
-    permission_classes = (IsAuthenticated, )
-    queryset = LegoSet.objects.select_related('series').all()
-    serializer_class = LegoSetSerializer
-
-
-class LegoSetDetailApiView(APIView):
-    permission_classes = (IsAuthenticated, )
-    
-    def get(self, request, pk):
-        try:
-            obj = LegoSet.objects.select_related('series').get(pk=pk)
-        except Exception as e:
-            return Response({
-                    "data": None,
-                    "meta": {
-                        "error": 201,
-                        "error_message": "Could not find a LegoSet with ID {}".format(pk), 
-                        "pk_received": pk
-                    },
-                },status=status.HTTP_404_NOT_FOUND)
-               
-    
-        return Response(LegoSetSerializer(obj, many=False).data)
-    
-
-class AddLegoSetApiView(generics.CreateAPIView):
-    permission_classes = (IsAdminUser, )
-    queryset = LegoSet.objects.all()
-    serializer_class = LegoSetBasicSerializer
-
-
-#TODO: finish view
-class UpdateLegoSetApiView(generics.UpdateAPIView):
-    permission_classes = (IsAdminUser, )
-    queryset = LegoSet.objects.all()
-    serializer_class = LegoSetBasicSerializer
-
+    def list(self, request, *args, **kwargs):
+        series_qs, qs_status = FilteredListMixin.filter_qs(request, self.queryset)
+        data = self.serializer_class(series_qs, many=True).data
         
-# LegoSetImage Views
-class LegoSetsImagesApiView(FilteredListMixin, generics.ListAPIView):
-    queryset = LegoSetImage.objects.select_related('lego_set').all()
-    serializer_class = LegoSetImageSerializer
+        return Response({
+            "data": data,
+            "meta": {
+                "type": "series_list",
+                "OK":True if qs_status==status.HTTP_200_OK else False
+            }
+        }, status=qs_status)
+
+    def retrieve(self, request, pk=None):
+        try:
+            obj = self.queryset.get(pk=pk)
+        except Exception:
+            return Response({
+                "data": None,
+                "meta": {
+                    "error": 201,
+                    "error_message": f"Could not find a LegoSet with ID {pk}",
+                    "pk_received": pk
+                },
+            },status=status.HTTP_404_NOT_FOUND)     
+        
+        serializer = self.serializer_class(obj)
+        return Response({
+            "data": serializer.data,
+            "meta": {
+                "type": "series_detail",
+                "OK":True,
+            }
+        })
+
+
+class LegoSetViewSet(viewsets.ModelViewSet):
+    queryset = LegoSet.objects.all()
+
+    def get_serializer_class(self):
+        if self.action in ("list", "retrieve"):
+            return LegoSetSerializer
+        return LegoSetBasicSerializer
+    
+    def get_permissions(self):
+
+        if self.action in ("list", "retrieve"):
+            permissions = (IsAuthenticated, )
+        else:
+            permissions = (IsAdminUser, )
+
+        return [permission() for permission in permissions]
+
+    def list(self, request, *args, **kwargs):
+        sets_qs, qs_status = FilteredListMixin.filter_qs(request, self.queryset)
+        data = self.get_serializer_class()(sets_qs, many=True).data
+
+        return Response({
+            "data": data,
+            "meta": {
+                "type": "set_list",
+                "OK":True if qs_status==status.HTTP_200_OK else False
+            }
+        }, status=qs_status)
+
+    def retrieve(self, request, pk=None):
+        try:
+            obj = self.queryset.get(pk=pk)
+        except Exception:
+            return Response({
+                "data": None,
+                "meta": {
+                    "pk_received": pk,
+                    "error_message": f'''
+                    Could not find a LegoSet obj with ID {pk}
+                    '''
+                }
+            }, status=status.HTTP_400_BAD_REQUEST)
+        
+        data = self.get_serializer_class()(obj).data
+        return Response({
+            "data": data,
+            "meta": {
+                "type": "set_detail",
+                "OK":True
+            }
+        })
