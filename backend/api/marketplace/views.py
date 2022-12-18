@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import generics, status
 from rest_framework.permissions import IsAuthenticated
+from rest_framework import viewsets
 
 from api.marketplace.permissions import IsItemOwner
 from marketplace.models import MarketItem
@@ -11,18 +12,50 @@ from api.marketplace.serializers import MarketItemBasicSerializer, MarketItemSer
 from core.utils import FilteredListMixin
 
 
-class MarketItemApiView(FilteredListMixin, generics.ListAPIView):
-    '''GET router for all Market Items'''
-    queryset = MarketItem.objects.select_related('lego_set', 'seller').all()
-    serializer_class = MarketItemSerializer
+class MarketItemViewSet(viewsets.ModelViewSet):
 
+    def get_serializer_class(self):
+        if self.action in ("list", "retrieve"):
+            return MarketItemSerializer
+        return MarketItemBasicSerializer
+
+    def get_permissions(self):
+
+        if self.action in ("list", "retrieve", "create"):
+            permissions = (IsAuthenticated, )
+        else:
+            permissions = (IsItemOwner, IsAuthenticated)
+
+        return [permission() for permission in permissions]
+
+    def get_queryset(self):
+        queryset = MarketItem.objects.filter(seller=self.request.user)
+        qs, qs_status = FilteredListMixin.filter_qs(self.request, queryset)
+        if qs_status != status.HTTP_200_OK:
+            return queryset
+        return queryset
     
-class AddMarketItemApiView(generics.CreateAPIView):
-    permission_classes = (IsAuthenticated, )
-    queryset = MarketItem.objects.all()
-    serializer_class = MarketItemBasicSerializer
+    def retrieve(self, request, pk=None):
+        try:
+            obj = self.queryset.get(pk=pk)
+        except Exception:
+            return Response({
+                "data": None,
+                "meta": {
+                    "pk_received": pk,
+                    "error_message": f'''
+                    Could not find a MarketItem obj with ID {pk}
+                    '''
+                }
+            }, status=status.HTTP_400_BAD_REQUEST)
 
-#TODO:
-class UpdateMarketItemApiView(APIView):
-    permission_classes = (IsItemOwner, )
+        data = self.get_serializer_class()(obj).data
+        return Response({
+            "data": data,
+            "meta": {
+                "type": "marketitem_detail",
+                "OK": True
+            }
+        }, status=status.HTTP_200_OK)
+
     
