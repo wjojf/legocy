@@ -1,3 +1,4 @@
+import api.marketplace.views as marketplace_views
 import api.core.views as core_views
 import api.views as api_views
 from api.views import MyTokenObtainPairView
@@ -16,6 +17,7 @@ from drf_spectacular.views import (
 router = DefaultRouter()
 router.register(r'series', core_views.LegoSeriesViewSet)
 router.register(r'sets', core_views.LegoSetViewSet)
+router.register(r'marketitems', marketplace_views.MarketItemViewSet, basename='MarketItem')
 
 urlpatterns = [
     path('', api_views.APIHomeView.as_view(), name='api-home'),
@@ -27,7 +29,8 @@ urlpatterns = [
     path(
         "docs/",
         SpectacularSwaggerView.as_view(
-            template_name="swagger-ui.html", url_name="schema"
+            template_name="swagger-ui.html",
+            url_name="schema",
         ),
         name="swagger-ui",
     ),

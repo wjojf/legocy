@@ -28,12 +28,12 @@ class CustomPagination(PageNumberPagination):
                                 "next": {
                                     'type': "string",
                                     'nullable': True,
-                                    'example': "http://localhost:8000/api/v1/series/?page=3",
+                                    'example': f"http://localhost:8000/api/v1/string/?page=3",
                                 },
                                 "previous": {
                                     'type': "string",
                                     'nullable': True,
-                                    'example': "http://localhost:8000/api/v1/series/?page=3",
+                                    'example': "http://localhost:8000/api/v1/string/?page=3",
                                 },
 
                             },

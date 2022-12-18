@@ -29,23 +29,21 @@ class MarketItemViewSet(viewsets.ModelViewSet):
         return [permission() for permission in permissions]
 
     def get_queryset(self):
-        queryset = MarketItem.objects.filter(seller=self.request.user)
+        queryset = MarketItem.objects.all()
         qs, qs_status = FilteredListMixin.filter_qs(self.request, queryset)
         if qs_status != status.HTTP_200_OK:
             return queryset
-        return queryset
-    
-    def retrieve(self, request, pk=None):
+        return qs
+
+    def retrieve(self, request, pk):
         try:
-            obj = self.queryset.get(pk=pk)
-        except Exception:
+            obj = self.get_queryset().get(pk=pk)
+        except Exception as e:
             return Response({
                 "data": None,
                 "meta": {
                     "pk_received": pk,
-                    "error_message": f'''
-                    Could not find a MarketItem obj with ID {pk}
-                    '''
+                    "error_message": f'{e}'
                 }
             }, status=status.HTTP_400_BAD_REQUEST)
 
@@ -57,5 +55,3 @@ class MarketItemViewSet(viewsets.ModelViewSet):
                 "OK": True
             }
         }, status=status.HTTP_200_OK)
-
-    
