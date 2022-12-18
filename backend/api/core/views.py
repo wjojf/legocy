@@ -68,18 +68,12 @@ class LegoSetViewSet(viewsets.ModelViewSet):
 
         return [permission() for permission in permissions]
 
-    def list(self, request, *args, **kwargs):
-        sets_qs, qs_status = FilteredListMixin.filter_qs(
-            request, self.queryset)
-        data = self.get_serializer_class()(sets_qs, many=True).data
-
-        return Response({
-            "data": data,
-            "meta": {
-                "type": "set_list",
-                "OK": True if qs_status == status.HTTP_200_OK else False
-            }
-        }, status=qs_status)
+    def get_queryset(self):
+        queryset = LegoSet.objects.all()
+        qs, qs_status = FilteredListMixin.filter_qs(self.request, queryset)
+        if qs_status != status.HTTP_200_OK:
+            return queryset
+        return qs
 
     def retrieve(self, request, pk=None):
         try:
