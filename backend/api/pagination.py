@@ -29,11 +29,13 @@ class CustomPagination(PageNumberPagination):
                                     'type': "string",
                                     'nullable': True,
                                     'example': f"http://localhost:8000/api/v1/string/?page=3",
+                                    "format": "uri",
                                 },
                                 "previous": {
                                     'type': "string",
                                     'nullable': True,
                                     'example': "http://localhost:8000/api/v1/string/?page=3",
+                                    "format": "uri",
                                 },
 
                             },
